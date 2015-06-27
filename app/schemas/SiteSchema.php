@@ -44,7 +44,7 @@ class SiteSchema extends SchemaProvider
     {
         /** @var Site $site */
         return [
-            'posts' => [self::DATA => $site->getPosts()],
+            'posts' => [self::DATA => $site->getRelated('Post')],
         ];
     }
 
