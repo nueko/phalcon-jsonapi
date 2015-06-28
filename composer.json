@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "neomerx/json-api": "~0.5.3"
+        "ext-phalcon": ">=2.0.0",
+        "neomerx/json-api": "~0.5.3",
+        "phalcon/incubator": "^2.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
