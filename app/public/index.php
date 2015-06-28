@@ -4,9 +4,12 @@ use Phalcon\Mvc\Micro;
 
 error_reporting(E_ALL);
 
-define('APP_PATH', realpath('..'));
-
 try {
+
+    /**
+     * Read the autoloader
+     */
+    require __DIR__ . "/../../vendor/autoload.php";
 
     /**
      * Read the configuration
@@ -16,12 +19,7 @@ try {
     /**
      * Include Services
      */
-    include APP_PATH . '/config/services.php';
-
-    /**
-     * Include Autoloader
-     */
-    include APP_PATH . '/config/loader.php';
+    include __DIR__ . "/../config/services.php";
 
     /**
      * Starting the application
@@ -32,7 +30,7 @@ try {
     /**
      * Include Application
      */
-    include APP_PATH . '/routes.php';
+    include __DIR__ . "/../routes.php";
 
     /**
      * Handle the request
