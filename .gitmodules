@@ -1,8 +1,0 @@
-[submodule "modules/json-api"]
-	path = modules/json-api
-	url = https://github.com/neomerx/json-api.git
-	branch = feature/issue36
-[submodule "modules/phalcon-stubs"]
-	path = modules/phalcon-stubs
-	url = https://github.com/sumeko/phalcon-stubs.git
-	branch = develop
