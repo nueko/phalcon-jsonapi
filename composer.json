@@ -1,12 +1,12 @@
 {
-    "name": "neomerx/limoncello-collins",
-    "description": "Quick start JSON API application",
-    "keywords": ["framework", "phalcon", "sumeko", "neomerx", "json-api"],
+    "name": "sumeko/phalcon-jsonapi",
+    "description": "Phalcon JSON API (jsonapi.org) quick start application",
+    "keywords": ["framework", "phalcon", "sumeko", "neomerx", "json-api", "json", "api"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "neomerx/json-api": "dev-develop"
+        "neomerx/json-api": "~0.5.3"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
