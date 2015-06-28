@@ -1,1 +1,4 @@
 .idea/
+vendor/
+app/.phalcon/
+composer.lock

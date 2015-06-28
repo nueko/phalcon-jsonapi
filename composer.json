@@ -1,0 +1,24 @@
+{
+    "name": "sumeko/phalcon-jsonapi",
+    "description": "Phalcon JSON API (jsonapi.org) quick start application",
+    "keywords": ["framework", "phalcon", "sumeko", "neomerx", "json-api", "json", "api"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "neomerx/json-api": "~0.5.3"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.5"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models",
+            "app/schemas"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
