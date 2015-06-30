@@ -14,26 +14,26 @@ use Phalcon\JsonApi\Model\Site;
 // Begin Routing
 //-----------------------------------------------
 
-$app->get('/', function () use($app) {
-    echo "Hello, world";
+$app->get('/', function () use ($app) {
+    return ["Hello, world"];
 });
 
 $app->resource('main', MainController::class);
 
 $app->get('/posts', function () use ($app) {
-    echo $app->encoder->encode(Post::find());
+    return $app->encoder->encode(Post::find());
 });
 
 $app->get('/authors', function () use ($app) {
-    echo $app->encoder->encode(Author::find());
+    return $app->encoder->encode(Author::find());
 });
 
 $app->get('/sites', function () use ($app) {
-    echo $app->encoder->encode(Site::find());
+    return $app->encoder->encode(Site::find());
 });
 
 $app->get('/comments', function () use ($app) {
-    echo $app->encoder->encode(Comment::find());
+    return $app->encoder->encode(Comment::find());
 });
 
 $app->options('*');
@@ -41,16 +41,26 @@ $app->options('*');
 //-----------------------------------------------
 // Begin Middleware
 //-----------------------------------------------
-$app->before(function () use($app) {
-
+$app->before(function () use ($app) {
+    $app->response->setContentType('application/vnd.api+json')->sendHeaders();
 });
 
-$app->after(function () use($app) {
-
+$app->after(function () use ($app) {
+    $content = $app->getReturnedValue();
+    switch (true) {
+        case is_string($content):
+            $app->response->setContent($content);
+            break;
+        case is_array($content):
+            $app->response->setJsonContent($content);
+            break;
+    }
 });
 
-$app->finish(function () use($app) {
-
+$app->finish(function () use ($app) {
+    if (!$app->response->isSent()) {
+        $app->response->sendHeaders()->send();
+    }
 });
 
 /**
