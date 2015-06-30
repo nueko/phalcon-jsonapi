@@ -15,10 +15,9 @@
         "phpunit/phpunit": "~4.5"
     },
     "autoload": {
-        "classmap": [
-            "app/models",
-            "app/schemas"
-        ]
+        "psr-4": {
+          "Phalcon\\JsonApi\\": "app/"
+        }
     },
     "config": {
         "preferred-install": "dist"

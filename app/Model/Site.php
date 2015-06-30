@@ -1,6 +1,6 @@
-<?php
+<?php namespace Phalcon\JsonApi\Model;
 
-class Site extends \Phalcon\Mvc\Model
+class Site extends BaseModel
 {
 
     /**
