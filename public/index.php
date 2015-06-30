@@ -9,7 +9,7 @@ try {
     /**
      * Read the autoloader
      */
-    require __DIR__ . "/../../vendor/autoload.php";
+    require __DIR__ . "/../vendor/autoload.php";
 
     /**
      * Read the configuration
@@ -25,7 +25,7 @@ try {
      * Starting the application
      * Assign service locator to the application
      */
-    $app = new Micro($di);
+    $app = new \Phalcon\JsonApi\Application($di);
 
     /**
      * Include Application
