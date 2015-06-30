@@ -4,63 +4,54 @@
  * @var \Phalcon\JsonApi\Application $app
  */
 
-use Neomerx\JsonApi\Encoder\Encoder;
-use Neomerx\JsonApi\Encoder\EncoderOptions;
-use \Phalcon\JsonApi\Model;
-use \Phalcon\JsonApi\Controller;
-use \Phalcon\JsonApi\Schema;
-
-$app->setService('encoder', function ($schemas = null, EncoderOptions $options = null) {
-
-    if(!$schemas) {
-        $schemas = [
-            Model\Author::class  => Schema\AuthorSchema::class,
-            Model\Comment::class => Schema\CommentSchema::class,
-            Model\Post::class    => Schema\PostSchema::class,
-            Model\Site::class    => Schema\SiteSchema::class
-        ];
-    }
-    return Encoder::instance($schemas, $options);
-});
+use Phalcon\JsonApi\Controller\MainController;
+use Phalcon\JsonApi\Model\Author;
+use Phalcon\JsonApi\Model\Comment;
+use Phalcon\JsonApi\Model\Post;
+use Phalcon\JsonApi\Model\Site;
 
 //-----------------------------------------------
 // Begin Routing
 //-----------------------------------------------
-//
 
-$app->before(function () use($app) {
-
-});
-
-$app->get('/', function () {
+$app->get('/', function () use($app) {
     echo "Hello, world";
 });
 
-
-$class = Controller\MainController::class;
-$app->resource('main', $class);
+$app->resource('main', MainController::class);
 
 $app->get('/posts', function () use ($app) {
-    echo $app->encoder->encode(Model\Post::find());
+    echo $app->encoder->encode(Post::find());
 });
 
 $app->get('/authors', function () use ($app) {
-    echo $app->encoder->encode(Model\Author::find());
+    echo $app->encoder->encode(Author::find());
 });
 
 $app->get('/sites', function () use ($app) {
-    echo $app->encoder->encode(Model\Site::find());
+    echo $app->encoder->encode(Site::find());
 });
 
 $app->get('/comments', function () use ($app) {
-    echo $app->encoder->encode(Model\Comment::find());
+    echo $app->encoder->encode(Comment::find());
 });
 
 $app->options('*');
 
 //-----------------------------------------------
-// End Routing
+// Begin Middleware
 //-----------------------------------------------
+$app->before(function () use($app) {
+
+});
+
+$app->after(function () use($app) {
+
+});
+
+$app->finish(function () use($app) {
+
+});
 
 /**
  * Not found handler
@@ -68,4 +59,12 @@ $app->options('*');
 $app->notFound(function () use ($app) {
     $app->response->setStatusCode(404, null)->sendHeaders();
     echo 'Not Found';
+});
+
+/**
+ * Error handlers
+ */
+$app->error(function (\Exception $e) {
+    // TODO: Implement error handler
+    return true;
 });

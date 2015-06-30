@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "ext-phalcon": ">=2.0.0",
         "neomerx/json-api": "~0.5.3",
-        "phalcon/incubator": "^2.0"
+        "phalcon/incubator": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-          "Phalcon\\JsonApi\\": "app/"
+          "Phalcon\\JsonApi\\": "app/",
+          "Phalcon\\JsonApi\\Test\\": "tests/"
         }
     },
     "config": {
