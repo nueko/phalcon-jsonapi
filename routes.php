@@ -21,19 +21,19 @@ $app->get('/', function () use ($app) {
 $app->resource('main', MainController::class);
 
 $app->get('/posts', function () use ($app) {
-    return $app->encoder->encode(Post::find());
+    return $app->encoder->encodeData(Post::find());
 });
 
 $app->get('/authors', function () use ($app) {
-    return $app->encoder->encode(Author::find());
+    return $app->encoder->encodeData(Author::find());
 });
 
 $app->get('/sites', function () use ($app) {
-    return $app->encoder->encode(Site::find());
+    return $app->encoder->encodeData(Site::find());
 });
 
 $app->get('/comments', function () use ($app) {
-    return $app->encoder->encode(Comment::find());
+    return $app->encoder->encodeData(Comment::find());
 });
 
 $app->options('*');

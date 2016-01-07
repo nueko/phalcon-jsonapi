@@ -182,14 +182,14 @@ class Author extends BaseModel
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Post', 'author_id', ['alias' => 'Post']);
+        $this->hasMany('id', Post::class, 'author_id', ['alias' => 'Post']);
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Phalcon\Mvc\Model\Resultset\Simple
+     * @return \Phalcon\Mvc\Model\Resultset\Simple
      */
     public static function find($parameters = null)
     {

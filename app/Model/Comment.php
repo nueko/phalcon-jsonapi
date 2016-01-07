@@ -153,7 +153,7 @@ class Comment extends BaseModel
      */
     public function initialize()
     {
-        $this->belongsTo('post_id', 'Post', 'id', ['alias' => 'Post']);
+        $this->belongsTo('post_id', Post::class, 'id', ['alias' => 'Post']);
     }
 
     /**

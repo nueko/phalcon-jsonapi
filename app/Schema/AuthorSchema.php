@@ -9,7 +9,7 @@ use Phalcon\JsonApi\Model\Author;
 class AuthorSchema extends BaseSchema
 {
     protected $resourceType = 'people';
-    protected $selfSubUrl  = '/people/';
+    protected $selfSubUrl = '/people/';
 
     public function getId($author)
     {

@@ -27,7 +27,7 @@ class CommentSchema extends BaseSchema
         ];
     }
 
-    public function getRelationships($comment)
+    public function getRelationships($comment, array $includeRelationships = [])
     {
         /** @var Comment $comment */
         return [

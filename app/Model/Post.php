@@ -211,9 +211,9 @@ class Post extends BaseModel
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Comment', 'post_id', ['alias' => 'Comment']);
-        $this->belongsTo('author_id', 'Author', 'id', ['alias' => 'Author']);
-        $this->belongsTo('site_id', 'Site', 'id', ['alias' => 'Site']);
+        $this->hasMany('id', Comment::class, 'post_id', ['alias' => 'Comment']);
+        $this->belongsTo('author_id', Author::class, 'id', ['alias' => 'Author']);
+        $this->belongsTo('site_id', Site::class, 'id', ['alias' => 'Site']);
     }
 
     /**

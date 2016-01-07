@@ -124,7 +124,7 @@ class Site extends BaseModel
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Post', 'site_id', ['alias' => 'Post']);
+        $this->hasMany('id', Post::class, 'site_id', ['alias' => 'Post']);
     }
 
     /**

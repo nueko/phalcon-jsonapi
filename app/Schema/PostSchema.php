@@ -26,7 +26,7 @@ class PostSchema extends BaseSchema
         ];
     }
 
-    public function getRelationships($post)
+    public function getRelationships($post, array $includeRelationships = [])
     {
         /** @var Post $post */
         return [

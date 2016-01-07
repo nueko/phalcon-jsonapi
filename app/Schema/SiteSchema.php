@@ -25,7 +25,7 @@ class SiteSchema extends BaseSchema
         ];
     }
 
-    public function getRelationships($site)
+    public function getRelationships($site, array $includeRelationships = [])
     {
         /** @var Site $site */
         return [
